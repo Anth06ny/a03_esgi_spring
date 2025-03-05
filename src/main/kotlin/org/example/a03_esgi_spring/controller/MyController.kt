@@ -14,6 +14,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes
 class MyController {
 
 
+
+
     @GetMapping("/login") //Affiche le formulaire
     fun login(userBean: UserBean, httpSession: HttpSession, model: Model): String {
         println("/login")

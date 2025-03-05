@@ -1,0 +1,56 @@
+// --------------------
+// allMessage
+// --------------------
+### Echec sans authentification
+GET http://localhost:8080/tchat/allMessage
+
+> {%
+    client.test("Request executed successfully", function() {
+        client.assert(response.status === 401, "Answer not expected");
+    });
+%}
+
+### Fonctionne avec authentification
+GET http://localhost:8080/tchat/allMessage
+Authorization: Basic aaa bbb
+
+> {%
+    client.test("Request executed successfully", function() {
+        client.assert(response.status === 200, "Answer not expected");
+    });
+%}
+
+###
+// --------------------
+// SaveMessage
+// --------------------
+### Ne doit pas fonctionner (401) sans authentification
+POST http://localhost:8080/tchat/saveMessage
+Content-Type: application/json
+
+{
+  "pseudo": "toto",
+  "message": "coucou"
+}
+
+> {%
+    client.test("Request executed successfully", function() {
+        client.assert(response.status === 401, "Answer not expected");
+    });
+%}
+
+### Fonctionne avec
+POST http://localhost:8080/tchat/saveMessage
+Content-Type: application/json
+Authorization: Basic aaa bbb
+
+{
+  "pseudo": "toto",
+  "message": "coucou"
+}
+
+> {%
+    client.test("Request executed successfully", function() {
+        client.assert(response.status === 200, "Answer not expected");
+    });
+%}

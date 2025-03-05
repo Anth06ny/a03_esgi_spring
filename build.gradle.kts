@@ -22,17 +22,29 @@ dependencies {
 
     //WebSocket
     implementation("org.springframework.boot:spring-boot-starter-websocket")
+
+    //Swagger la doc api
     implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.+")
 
+    //Page web
     implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
+
+    //Sécurité
+    implementation("org.springframework.boot:spring-boot-starter-security")
+
+    //BDD
+    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+    runtimeOnly("com.h2database:h2")
+
+    //base
+    developmentOnly("org.springframework.boot:spring-boot-devtools")
+    testImplementation("org.springframework.boot:spring-boot-starter-test")
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
-    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
-    developmentOnly("org.springframework.boot:spring-boot-devtools")
-    testImplementation("org.springframework.boot:spring-boot-starter-test")
+
+    //test
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
-    runtimeOnly("com.h2database:h2")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
 
