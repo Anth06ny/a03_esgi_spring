@@ -2,7 +2,7 @@
 // allMessage
 // --------------------
 ### Echec sans authentification
-GET http://localhost:8080/tchat/allMessage
+GET http://localhost:8080/tchat/allMessages
 
 > {%
     client.test("Request executed successfully", function() {
@@ -11,7 +11,7 @@ GET http://localhost:8080/tchat/allMessage
 %}
 
 ### Fonctionne avec authentification
-GET http://localhost:8080/tchat/allMessage
+GET http://localhost:8080/tchat/allMessages
 Authorization: Basic aaa bbb
 
 > {%
